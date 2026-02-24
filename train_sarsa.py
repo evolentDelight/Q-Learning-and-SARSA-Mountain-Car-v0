@@ -3,6 +3,11 @@ import gymnasium as gym
 import random
 import numpy as np
 
+import time
+import datetime
+
+start_time = time.perf_counter()
+
 env = gym.make('MountainCar-v0')
 env._max_episode_steps = 1000
 
@@ -61,4 +66,9 @@ for i in range(episodes):
     epsilon = epsilon - 2/episodes if epsilon > 0.01 else 0.01
 
 # Save Q-table as .pkl file
-save_obj(Q, 'pre-trained-SARSA')
+save_obj(Q, 'SARSA-trained')
+
+end_time = time.perf_counter()
+elapsed_seconds = end_time - start_time
+time_elapsed = datetime.timedelta(seconds=elapsed_seconds)
+print(f"Duration: {time_elapsed}")
