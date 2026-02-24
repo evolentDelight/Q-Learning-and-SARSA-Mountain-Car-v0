@@ -1,5 +1,5 @@
 import numpy as np
-import gym
+import gymnasium as gym
 import pickle
 
 env = gym.make('MountainCar-v0')

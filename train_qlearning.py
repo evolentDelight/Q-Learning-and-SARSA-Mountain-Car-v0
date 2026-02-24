@@ -1,5 +1,5 @@
 from auxFunctions import getState, createEmptyQTable, maxAction, save_obj
-import gym
+import gymnasium as gym
 import random
 import numpy as np
 
@@ -22,7 +22,7 @@ total_score = np.zeros(episodes)
 
 for i in range(episodes):
     done = False
-    observation = env.reset()
+    observation, info = env.reset()
     state = getState(observation)
     
     if i % 500 == 0:
@@ -39,7 +39,8 @@ for i in range(episodes):
             action = maxAction(Q, state)
         
         # Observe next state based on 
-        next_observation, reward, done, info = env.step(action)
+        next_observation, reward, terminated, truncated, info = env.step(action)
+        done = terminated or truncated
         next_state = getState(next_observation)
         
         # Add reward to the score of the episode

@@ -1,4 +1,4 @@
-import gym
+import gymnasium as gym
 
 env = gym.make('MountainCar-v0')
 for i in range(10):

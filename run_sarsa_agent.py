@@ -1,7 +1,7 @@
 from auxFunctions import getState, load_obj, maxAction
-import gym
+import gymnasium as gym
 
-env = gym.make('MountainCar-v0')
+env = gym.make('MountainCar-v0', render_mode="human")
 # Set the max step to 200
 env._max_episode_steps = 200
 
@@ -11,7 +11,7 @@ Q = load_obj('pre-trained-SARSA')
 # Run 10 episodes
 for episode in range(10):
     done = False
-    observation = env.reset()
+    observation, info = env.reset()
     state = getState(observation)
     # While the car don't reach the goal or number of steps < 200
     while not done:
@@ -19,7 +19,8 @@ for episode in range(10):
         print(observation)
         # Take the best action for that state given trained values
         action = maxAction(Q, state)
-        observation, reward, done, info = env.step(action)
+        observation, reward, terminated, truncated, info = env.step(action)
+        done = terminated or truncated
         # Go to next state
         state = getState(observation)
 

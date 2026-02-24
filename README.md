@@ -1,3 +1,10 @@
+# Updated to Gymnasium API
+This project is now updated to the latest Gymnasium.
+This project is best used with Python 3.12
+```pip install gymnasium```
+```pip install gymnasium[classic_control]``` For Mountain Car Environment
+```pip install gymnasium[toy-text]``` For Frozen Lake
+
 # MountainCar-v0 with Q-Learning and SARSA
 ---
 This project contains the code to train an agent to solve the [OpenAI Gym Mountain Car environment](https://gym.openai.com/envs/MountainCar-v0/) with Q-Learning and SARSA. It also contains pre-trained agents using both algorithms.

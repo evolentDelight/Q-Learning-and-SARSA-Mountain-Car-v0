@@ -1,5 +1,5 @@
 from auxFunctions import getState, createEmptyQTable, maxAction, save_obj
-import gym
+import gymnasium as gym
 import random
 import numpy as np
 
@@ -23,7 +23,7 @@ for i in range(episodes):
     if i % 500 == 0:
         print(f'episode: {i}, score: {score}, epsilon: {epsilon:0.3f}')
     
-    observation = env.reset()
+    observation, info = env.reset()
     state = getState(observation)
 
     # e-Greedy strategy
@@ -38,7 +38,8 @@ for i in range(episodes):
     done = False
     while not done:
         # Take action and observe next state
-        next_observation, reward, done, info = env.step(action)
+        next_observation, reward, terminated, truncated, info = env.step(action)
+        done = terminated or truncated
         next_state = getState(next_observation)
         
         # Get next action following e-Greedy policy
