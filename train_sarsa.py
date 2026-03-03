@@ -47,7 +47,7 @@ for i in range(episodes):
         done = terminated or truncated
         next_state = getState(next_observation)
         
-        # Get next action following e-Greedy policy
+        # Get next action following e-Greedy policy, thus on-policy
         if random.uniform(0, 1) < epsilon:
             next_action = env.action_space.sample()
         else:
