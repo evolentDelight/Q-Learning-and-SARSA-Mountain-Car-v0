@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.ticker as ticker
 from auxFunctions import load_obj
 
 # Load saved score arrays
@@ -28,5 +29,8 @@ plt.ylabel("Total Reward")
 plt.title("Q-learning vs SARSA (Moving Average)")
 plt.legend()
 plt.grid(True)
+
+# Set y-axis ticks every 100
+plt.gca().yaxis.set_major_locator(ticker.MultipleLocator(25))
 
 plt.show()
