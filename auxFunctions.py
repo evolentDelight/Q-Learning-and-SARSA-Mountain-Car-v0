@@ -4,7 +4,7 @@ import pickle
 
 env = gym.make('MountainCar-v0')
 
-# Discritize observation and action space in bins.
+# Discretize observation and action space in bins.
 pos_space = np.linspace(-1.2, 0.6, 18)
 vel_space = np.linspace(-0.07, 0.07, 28)
 
