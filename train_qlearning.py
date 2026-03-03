@@ -66,7 +66,7 @@ for i in range(episodes):
     epsilon = epsilon - 2/episodes if epsilon > 0.01 else 0.01
 
 # Save Q-table as .pkl file
-folder_name = ''
+folder_name = '4. Bigger Bin Tweak'
 save_obj(Q, f'./results/{folder_name}/Q-Learning-trained')
 save_obj(total_score, f'./results/{folder_name}/Q-Learning-scores')
 

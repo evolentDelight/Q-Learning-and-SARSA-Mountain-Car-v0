@@ -15,7 +15,7 @@ def moving_average(data, window_size):
                        np.ones(window_size)/window_size, 
                        mode='valid')
 
-window = 500  # smooth curve (since you have 50,000 episodes)
+window = 500  # smooth curve
 
 q_avg = moving_average(q_scores, window)
 sarsa_avg = moving_average(sarsa_scores, window)
