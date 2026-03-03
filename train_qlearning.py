@@ -16,7 +16,7 @@ Q = createEmptyQTable()
 
 # Hyperparameters 
 alpha = 0.1 # Learning Rate
-gamma = 0.9 # Discount Factor 
+gamma = 0.95 # Discount Factor 
 epsilon = 1 # e-Greedy 
 episodes = 50000 # number of episodes
 
@@ -66,7 +66,9 @@ for i in range(episodes):
     epsilon = epsilon - 2/episodes if epsilon > 0.01 else 0.01
 
 # Save Q-table as .pkl file
-save_obj(Q, 'Q-Learning-trained')
+folder_name = ''
+save_obj(Q, f'./results/{folder_name}/Q-Learning-trained')
+save_obj(total_score, f'./results/{folder_name}/Q-Learning-scores')
 
 end_time = time.perf_counter()
 elapsed_seconds = end_time - start_time
